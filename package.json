@@ -1,0 +1,28 @@
+{
+  "name": "footprint-service",
+  "version": "1.0.0",
+  "description": "Microservicio para calcular la huella de carbono",
+  "type": "module",
+  "main": "footprint-server.mjs",
+  "scripts": {
+    "start": "node footprint-server.mjs"
+  },
+  "keywords": [
+    "microservicio",
+    "electricidad",
+    "gas",
+    "water",
+    "lpg",
+    "gn",
+    "flyght",
+    "cogs",
+    "person",
+    "nodejs"
+  ],
+  "author": "energyner",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
