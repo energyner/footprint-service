@@ -1,165 +1,526 @@
 body {
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    margin: 0;
-    padding: 0;    
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
 }
-   * { /* selector universal */
-    box-sizing: border-box;
-   }
-   header, footer {
-    background-color: #333; 
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-   }
+* {
+  /* selector universal */
+  box-sizing: border-box;
+}
 
-/*estilos para los encabezamientos de los textos*/
-.subcapitulo1{
-  border: 1px solid black; 
-  border-radius: 0px;
-  background-color: #f0e9fd;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Sombra ligera */
-  padding: 10px; 
-  color:black; 
-  text-align: center; 
+.header {
+  color: #f56a6a;
+  display: flex;
+  justify-content: space-between; /* Distribuir los elementos con espacio entre ellos */
+  align-items: center; /* Centrar verticalmente */
+  padding: 5px 0;
+  background-color: #fff; /* Color de fondo opcional */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para el encabezado */
+  text-align: center;
 }
-.subcapitulo2{
-  border: 1px solid black; 
-  background-color: #faf2fd;
-  padding: 10px; 
-  color:black; 
-  text-align: center; 
-  font-size:  14px; 
-  font-weight:bold;
+/* Estilos para las divisiones */
+#1,
+#2,
+#3 {
+  flex: 1; /* Asegura que cada div tome el mismo ancho */
+  padding: 10px;
 }
-.subcapitulo3{
-  border: 1px solid black; 
-  background-color: #faf2fd;
-  padding: 0px; 
-  color:black; 
-  text-align: left; 
-  font-size:  12px; 
-  font-weight:bold;
+/* Estilos para el logo */
+.logo_1 {
+  /* font-size: 24px;
+  font-weight: 300; */
+  margin-right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 99; /* Asegura que esté por encima de otros elementos */
 }
-.articulo1 {
-  color:rgb(2, 0, 0); 
-  border: 2px solid crimson;
-  font-size:  12px; 
-  font-weight:300;
+
+/* Estilos para el menú desplegable redes sociales */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  background-color: #fff; /* Color de fondo opcional */
+  padding-top: 7.5em;
+}
+
+#dropbtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+#dropbtn img {
+  width: 25px; /* Establece el ancho deseado */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+#dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+#dropdown-content a {
+  color: black;
+  padding: 5px 5px;
+  text-decoration: none;
+  display: block;
+}
+
+#dropdown-content a img {
+  width: 22px;
+  height: 22px;
+}
+
+#dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover #dropdown-content {
+  display: block;
+}
+
+.dropdown:hover #dropbtn {
+  background-color: #ddd;
 }
 
 /*Estilos de dos divisiones*/
 
 .wrapper {
-    display: flex;
-    flex-wrap: wrap; /* Permite que las columnas se ajusten al ancho de la pantalla */
+  display: flex;
+  flex-wrap: wrap; /* Permite que las columnas se ajusten al ancho de la pantalla */
 }
 
 .column {
-    flex: 0 0 50%; /* Cada columna ocupa un tercio del ancho */
-    max-width: 50%; /* Se establece un ancho máximo para evitar que las columnas se expandan demasiado en pantallas grandes */
-    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
-    padding: 20px; /* Espacio interno */
-    border: 1px solid #ccc; /* Borde para visualización */
-    text-align: left; /* Centra el contenido */
+  flex: 0 0 50%; /* Cada columna ocupa un tercio del ancho */
+  max-width: 50%; /* Se establece un ancho máximo para evitar que las columnas se expandan demasiado en pantallas grandes */
+  box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+  padding: 20px; /* Espacio interno */
+  border: 1px solid #ccc; /* Borde para visualización */
+  text-align: left; /* Centra el contenido */
+}
+/*Estilos para el footer */
+footer {
+  background-color: rgb(26, 35, 126, 0.8); /* Color de fondo del footer */
+  color: #fff; /* Color del texto del footer */
+  text-align: center; /* Centra el texto del footer */
+  padding: 20px 0; /* Espacio interno del footer */
+  font-size: 14px;
+}
+
+/*estilos para los encabezamientos de los textos*/
+.subcapitulo1 {
+  border: 1px solid black;
+  border-radius: 0px;
+  background-color: #f0e9fd;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Sombra ligera */
+  padding: 10px;
+  color: black;
+  text-align: center;
+}
+.subcapitulo2 {
+  border: 1px solid black;
+  background-color: #faf2fd;
+  padding: 10px;
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+.subcapitulo3 {
+  border: 1px solid black;
+  background-color: #faf2fd;
+  padding: 0px;
+  color: black;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
+}
+.articulo1 {
+  color: rgb(2, 0, 0);
+  border: 2px solid crimson;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+/*Estilos personalizados para la API*/
+/*API footprint*/
+
+/*Estilos del Formulario*/
+form.form-horizontal {
+  /* a) Ubicarlo en la posición izquierda de la interfaz de usuario */
+  /* b) Que su ancho sea de 400px */
+  width: 400px; /* Ancho fijo para pantallas grandes */
+  max-width: 95%; /* CLAVE: Asegura que el formulario no exceda el ancho de la pantalla en móviles */
+  margin-left: 20px; /* Margen a la izquierda para separarlo del borde */
+  margin-top: 20px; /* Margen superior para separarlo del header */
+  margin-bottom: 20px; /* Margen inferior */
+
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para que se destaque */
+  box-sizing: border-box; /* Incluye padding en el ancho */
+
+  /* Para que los elementos internos se apilen verticalmente */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+}
+
+/* --- Estilos para los Grupos de Formulario (div.form-group) --- */
+.form-group {
+  margin-bottom: 15px; /* Espacio entre cada grupo de entrada */
+  display: flex; /* Usar flexbox para alinear label, input y spans */
+  flex-direction: column; /* Por defecto, apilar en columna */
+  align-items: flex-start; /* Alinea el contenido a la izquierda */
+}
+
+/* Estilos para el select del estado */
+#state_id {
+  width: 100%; /* Ocupa todo el ancho disponible en su contenedor */
+  padding: 10px;
+  border: 2px solid green;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-top: 5px; /* Pequeño margen superior para separar del label */
+}
+
+/* --- Estilos para labels, inputs y spans que acompañan los inputs --- */
+label.control-label {
+  display: block; /* Asegura que la label ocupe su propia línea */
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+col-md-8 {
+  display: flex; /* Usa flexbox para alinear input y spans */
+  align-items: center; /* Centra verticalmente */
+  width: 100%; /* Ocupa todo el ancho en el form-group */
+  box-sizing: border-box;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan si no hay espacio */
+}
+
+.col-md-8 input[type="text"] {
+  flex-grow: 1; /* Permite que el input crezca y ocupe el espacio */
+  margin-right: 10px; /* Espacio entre el input y el primer span */
+  min-width: 120px; /* Ancho mínimo para el input */
+  max-width: 100%; /* No desborda */
+}
+
+.col-md-8 .phpindice,
+.col-md-8 .manual {
+  white-space: nowrap; /* Evita que las unidades se dividan en varias líneas */
+  margin-left: 5px; /* Espacio antes del segundo span */
+}
+
+/* Estilos para todos los inputs de texto (incluyendo los de reporte) y select */
+input[type="text"],
+input[type="number"],
+select.form-control {
+  width: 100%; /* Por defecto, ancho completo en su contenedor */
+  padding: 10px;
+  margin-top: 5px; /* Espacio por encima del input */
+  margin-bottom: 10px; /* Espacio debajo del input */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box; /* Incluye padding y border en el ancho */
+}
+
+input[type="number"]:hover, select.form-control:hover {
+  cursor: pointer; /* Muestra que es interactivo */
+  background-color: #fffae6; /* Color suave para llamar la atención */
+  box-shadow: 0 0 8px rgba(255, 165, 0, 0.5); /* Brillo sutil */
 }
 
 
-   @media (max-width: 768px) {
-    .column {
-        flex: 0 0 100%; /* En pantallas más pequeñas, cada columna ocupa el 100% del ancho */
-        max-width: 100%; /* Ancho máximo del 100% */
-    }
-   }
-/*estilos para los links*/
-.link-container-entrenamiento {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    position: relative; /* Añadido para asegurar que z-index funcione correctamente */
+input[type="number"]:invalid  {
+border-bottom: 2px solid red;
 }
-
-.link-item-entrenamiento {
+input[type="number"]:invalid + .error-msg {
     display: block;
-    width: calc(100% - 20px); /* Ajusta el ancho para el padding de 10px a cada lado */
-    margin: 5px 0; /* Espaciado de 2px entre enlaces */
-    padding: 10px;/* Limitando la altura del contenedor a 5px entre enlaces */
-    background-color: hsl(164, 89%, 22%);
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    position: relative; /* Añadido para asegurar que z-index funcione
-    correctamente */
-    z-index:6;
+    color: red;
+    font-size: 12px;
+}
+.error-msg {
+    display: none;
 }
 
-.link-item-entrenamiento:hover {
-    background-color: orange;
+.span {
+  display: inline-block;
+  font-size: clamp(0.8rem, 2.5vw, 1rem); /* Escala según viewport */
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  white-space: nowrap; /* Evita salto de línea inesperado */
+  color: #444; /* Estilo opcional */
 }
 
-#noticias_New, #noticias_G {
+
+/* Ajustes para los inputs de reporte (sin borde superior, con fondo de color) */
+input[name^="reporte_"] {
+  /* Selector para name="reporte_e", "reporte_gas", etc. */
+  border: none !important; /* Sobrescribe el borde general */
+  border-bottom: 2px solid blue !important; /* Mantiene solo el borde inferior */
+  background-color: transparent !important; /* O transparente para no interferir con el fondo del form */
+  margin-top: 0; /* No necesita margen superior si está en la misma línea */
+  font-weight: bold;
+  color: #333;
+  padding-left: 0; /* Si no tiene valor inicial, no necesita padding a la izquierda */
+}
+input[name="reporte_cogs"],
+input[name="porcent"] {
+  color: white; /* Color de texto blanco para estos específicos */
+}
+input[name="state_us"] {
+  background-color: #e1f8f7 !important;
+}
+input[name="per_cap_m"] {
+  background-color: #aaf8bc !important;
+}
+input[name="per_cap_usa"] {
+  background-color: #d9ddda !important;
+}
+input[name="per_cap_world"] {
+  background-color: #f6f8f6 !important;
+}
+input[name="porcent"] {
+  background-color: #055d20 !important;
+} /* Color verde fuerte para % */
+
+/* --- Estilos para los botones (Send, etc.) --- */
+input[type="button"],
+button[type="submit"] {
+  width: auto; /* Ancho automático, ajusta si es necesario */
+  padding: 10px 35px; /* Más padding para el botón */
+  margin-top: 10px; /* Margen superior para separar del último input */
+  margin-bottom: 10px;
+  background-color: #007bff; /* Color azul, como el anterior submit */
+  color: #fff;
+  border: none;
+  border-radius: 8px; /* Bordes más redondeados */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  align-self: flex-start; /* Alinea el botón a la izquierda dentro del flex container */
+}
+
+input[type="button"]:hover,
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* --- Estilos para la sección de Reportes --- */
+.col-md-12.text-center {
+  width: 100%; /* Ocupa todo el ancho */
+  text-align: left; /* Alinea los elementos a la izquierda dentro de esta sección */
+  margin-top: 10px; /* Espacio superior */
+  padding-top: 10px; /* Padding interno */
+  border-top: 1px dashed #ccc; /* Separador visual */
+}
+
+.col-md-12.text-center input[type="text"] {
+  display: inline-block; /* Permite que los inputs estén en línea */
+  width: 100%; /* Ancho fijo para los campos de reporte */
+  padding: 10px;
+  margin-top: 5px; /* Espacio por encima del input */
+  margin-bottom: 10px; /* Espacio debajo del input */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box; /* Incluye padding y border en el ancho */
+
+}
+
+.col-md-12.text-center .phpindice,
+.col-md-12.text-center .manual {
+  font-size: 1em;
+  color: #333;
+  font-weight: normal;
+}
+.col-md-12.text-center .manual b {
+  font-weight: bold;
+  color: #000; /* Color más oscuro para el texto "State" */
+}
+
+/*Estilos de los vinculos*/
+
+a:link {
+  color: #009900;
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+  color: #488c40;
+  :link,
+  :visited {
+    cursor: pointer;
+  }
+}
+a:hover {
+  text-decoration: underline;
+  color: #da0f00;
+}
+a:active {
+  text-decoration: none;
+  color: #333399;
+}
+
+@media (max-width: 768px) {
+  .column {
+    flex: 0 0 100%; /* En pantallas más pequeñas, cada columna ocupa el 100% del ancho */
+    max-width: 100%; /* Ancho máximo del 100% */
+    
+  }
+input[type="number"]:hover, select.form-control:hover {
+  cursor: pointer; /* Muestra que es interactivo */
+  background-color: #fffae6; /* Color suave para llamar la atención */
+  box-shadow: 0 0 8px rgba(255, 165, 0, 0.5); /* Brillo sutil */
+}
+
+}
+
+@media (max-width: 767px) {
+  form.form-horizontal {
+    /* Para móviles, el formulario ocupa la mayor parte del ancho */
+    width: 95%; /* Más adaptable */
+    margin: 20px auto; /* Centra el formulario y da margen */
+    padding: 15px; /* Menos padding en pantallas pequeñas */
+  }
+
+  .form-group {
+    flex-direction: column; /* Asegura que los grupos se apilen */
+    align-items: flex-start; /* Alinea el contenido a la izquierda */
+    margin-bottom: 10px; /* Menor espacio entre grupos */
+  }
+input[type="number"]:hover, select.form-control:hover {
+  cursor: pointer; /* Muestra que es interactivo */
+  background-color: #fffae6; /* Color suave para llamar la atención */
+  box-shadow: 0 0 8px rgba(255, 165, 0, 0.5); /* Brillo sutil */
+}
+  label.control-label,
+  .help-block.manual,
+  .help-block h4 {
+    text-align: left; /* Asegura que los textos estén alineados a la izquierda */
+    width: 100%; /* Ocupa todo el ancho para la legibilidad */
+    margin-bottom: 5px; /* Espacio bajo los títulos/labels */
+  }
+
+  .col-md-8 {
+    flex-direction: column; /* Apila inputs y spans */
+    align-items: flex-start; /* Alinea a la izquierda */
+    width: 100%;
+  }
+
+  .col-md-8 input[type="text"],
+  .col-md-8 select,
+  .col-md-8 input[type="number"] {
+    width: 100%; /* Inputs ocupan todo el ancho */
+    margin-right: 0; /* Sin margen a la derecha */
+    margin-bottom: 5px; /* Espacio entre inputs apilados */
+  }
+
+  .col-md-8 .phpindice,
+  .col-md-8 .manual {
+    margin-left: 0; /* Quita el margen a la izquierda de las unidades */
+    width: 100%; /* Para que las unidades se muestren debajo del input */
+    text-align: left;
+  }
+
+  input[type="button"],
+  button[type="submit"] {
+    width: 100%; /* Botón ocupa todo el ancho en móviles */
+    padding: 10px;
+    font-size: 15px;
+    align-self: center; /* Centra el botón si el padre es flex */
+  }
+
+  .col-md-12.text-center {
+    text-align: left; /* Asegura que los elementos de reporte estén a la izquierda */
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .col-md-12.text-center input[type="text"] {
+    width: calc(
+      100% - 60px
+    ); /* Ancho dinámico para input, dejando espacio para la unidad */
+    display: inline-block;
+    vertical-align: middle; /* Alineación vertical */
+  }
+  .col-md-12.text-center .phpindice,
+  .col-md-12.text-center .manual {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50px; /* Ancho fijo para las unidades */
+    text-align: right; /* Alinea la unidad a la derecha */
+  }
+  footer {
+ background-color: rgb(26, 35, 126, 0.8); /* Color de fondo del footer */
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  padding: 1em 0;
   margin-top: 20px;
   padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
+  border-radius: 8px; /* Bordes redondeados para estética consistente */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para que destaque */
+  box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+  }
 }
 
-/*Estilos para los formularios */
-
-
-form {
+/* Estilos Base para grfico pie con  #chartContainer (dentro de una .column) */
+#chartContainer {
+    /* Propiedades generales de diseño */
     background-color: #fff;
-    padding: 5px;
-    border-radius: 4px;
+    padding: 25px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 200px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 4px;
-    font-weight: bold;
-  }
-  
-  input[type="number"] {
-    width: 60%;
-    padding: 4px;
-    margin-bottom: 4px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
     box-sizing: border-box;
-  }
-  
-  button[type="submit"] {
-    width: 60%;
-    padding: 6px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  /* Concatenar los selectores que se agreguen. Imprimir el resultado*/
-  #resultadoConsumo, #resultadoSolar {
-    font-weight: bold;
-    color: #2c3e50; /* Un color oscuro para mejor legibilidad */
-    background-color: #ecf0f1; /* Un fondo claro para contraste */
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-    border: 1px solid #bdc3c7; /* Un borde suave para definición */
-    text-align: center; /* Centra el texto */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una ligera sombra */
-  }
+
+    /* ----- PROPIEDADES PARA UBICACIÓN Y RESPONSIVIDAD DENTRO DE LA COLUMNA ----- */
+
+    /* Ocupa todo el ancho disponible de su contenedor padre (.column) */
+    width: 100%;
+    /* Un máximo para que el gráfico no sea excesivamente grande dentro de la columna */
+    max-width: 550px; /* Ajusta este valor según el tamaño ideal del gráfico */
+    
+    /* Altura para el gráfico. CanvasJS ajusta internamente. */
+    height: 350px; /* Altura inicial fija para el contenedor del gráfico */
+
+    /* Centra el gráfico horizontalmente DENTRO de su .column div */
+    margin-left: auto;
+    margin-right: auto;
+    /* Margen vertical para separarlo del texto superior y del borde inferior de la columna */
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+
+    /* Asegurar que el texto dentro del gráfico (si CanvasJS lo genera) esté centrado */
+    text-align: center; 
+}
+
+/* -------------------------------------------------------------------------- */
+/* MEDIAS QUERIES para #chartContainer (si necesitas afinar tamaños específicos) */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) { /* Para pantallas más pequeñas (móviles) */
+    #chartContainer {
+        height: 300px; /* Ligeramente más pequeño en móviles */
+        margin: 20px auto; /* Centrado y con margen vertical */
+    }
+}
+
+@media (min-width: 1024px) { /* Para pantallas de escritorio más grandes */
+    #chartContainer {
+        height: 400px; /* Altura óptima para un gráfico de pastel grande */
+        max-width: 600px; /* Puede ser un poco más grande si la columna lo permite */
+    }
+}
+

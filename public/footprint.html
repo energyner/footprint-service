@@ -1,29 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Huella de Carbono </title>
-     <!--Aplicando estilo a una estructura responsivo de tres columnas -->
- <link rel="stylesheet" href="style-footprint.css" type="text/css"  >
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
-<body>
-<header>
-    <h3> APIs Calculador Consumo Energéticos - APIs </h3>  
-   <p>Los scripts y ejercicios se encuentran en el Libro 7 -
-    Programando Paso a Paso y Más a la venta en Amazon.</p>
-</header>
-<!--3 Divisiones responsives-->
-<div class="wrapper"> 
-    <div class="column"> <!-- Primera división -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Huella de Carbono</title>
+    <!--Aplicando estilo a una estructura responsivo de tres columnas -->
+   <link rel="stylesheet" href="./css/main11.css" />
+  <link rel="stylesheet" href="./style-footprint.css" type="text/css" />
+  <!-- **IMPORTANTE:** Cargar la librería CanvasJS UNA SOLA VEZ, y ANTES de que cualquier script la use.
+   Aquí en el head está bien para asegurar que esté disponible globalmente. -->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+  </head>
+  <body>
+    <header class="header">
+      <!--Menu de navegacion a la izquierda del header-->  
+      <div id="1">
+        <nav id="nav1"></nav>
+        <!--Menu de navegacion aqui-->
+      </div>
+
+      <!--Menu de informacion al centro del header--> 
+      <div id="2">
+        <div class="maindos">
+          <h3>Class 7. Septima Parte</h3>
+          <p>
+            Los scripts de estos ejercicios se encuentran en el Libro 7   "Programando Paso a Paso y Más".     </p>
+          <h4>Los libros están a la venta en Amazon</h4>
+        </div>
+      </div>
+
+      <!--Menu redes socila
+      s y logo a la derecha header--> 
+      <div id="3">
+        <div class="logo_1">
+          <img src="./img/loggo.png" alt="Energyner" />
+        </div>
+        <br />
+     <!--Menu redes sociales-->   
+        <div class="dropdown">
+          <button id="dropbtn" type="button">
+            <img src="./img/todas.png" alt="Menú de redes sociales" />
+          </button>
+          <div id="dropdown-content">
+            <nav id="nav2"></nav>
+            <!--Menu de redes sociales  -->
+          </div>
+        </div>
+      </div>
+
+    </header>
+    <!--Linea de separacion del header con el body de color naranja--> 
+    <nav><ul></ul></nav>
+<!--2 Divisiones responsives-->
+<div class="wrapper"> <!--Empieza el contenedor wrapper que abraza las 2 columnas -->
+    <div class="column"> <!--Empieza el contenedor de la primera columna -->
       <h3 class="subcapitulo1"> Calculador Huella de Carbono</h3>
-        <p><b>2.7.1.3 - 1 API Huella de Carbono</b></p>
+        <p><b> API Huella de Carbono</b></p>
         <!--API Huella de Carbono-->
-        <form id="formulario">
-            <label>Estado:</label>
-            <select id="state">
-            <option value="Select your State">Select your State</option>
+     <form class="form-horizontal" name="formulario" id="carbonCalculatorForm">
+      <fieldset>
+        <legend class="text-center header1">CO2 footprint - for month</legend>
+
+        <div class="form-group">
+          <!-- State Button -->
+          <label for="state_id" class="control-label">State</label> <br />
+          <select
+            class="form-control"
+            id="state_id"
+            name="state_id"
+            style="border: 2px solid green"
+            required
+          >
+            <option value="" selected>Select your State</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -74,54 +123,332 @@
             <option value="WV">West Virginia</option>
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
-
-            </select>
-            <label>Electricidad (kWh):</label>
-            <input type="number" id="elect" placeholder="kWh">
-            <label>Gas (galones):</label>
-            <input type="number" id="gas" placeholder="galones">
-            <label>Agua (pies cúbicos):</label>
-            <input type="number" id="water" placeholder="pies cúbicos">
-            <label>LPG (galones):</label>
-            <input type="number" id="lpg" placeholder="galones">
-            <label>Gas Natural (pies cúbicos):</label>
-            <input type="number" id="gn" placeholder="pies cúbicos">
-            <label>Distancia de vuelo (millas):</label>
-            <input type="number" id="fly" placeholder="millas">
-            <label>Costos operativos (USD):</label>
-            <input type="number" id="cogs" placeholder="USD">
-            <label>Número de personas:</label>
-            <input type="number" id="person" placeholder="Numero">
-            <p>Realiza el calculo</p>
-            <button id="calcular">Calcular</button>
-        </form>
-        
-        <div >
-            <label>Resultado Total:lb_CO2</label>
-            <input id="resultado" readonly>
-            <label>Estado:</label>
-            <input id="estado" readonly>
-            <label>Huella Per Cápita:lb_CO2/u</label>
-            <input id="percapita" readonly>
-            <label>Huella/pc Estado:lb_CO2/u</label>
-            <input id="per_capita_estado" readonly>
-            <label>Promedio/pc USA:lb_CO2/u</label>
-            <input id="promedioUSA" readonly>
-            <label>Promedio/pc Mundo:lb_CO2/u</label>
-            <input id="promedioMundial" readonly>
-            <label>Porciento/pc Estado:</label>
-            <input id="porcentajeEstado" readonly>
-            <label>Porciento/pc USA:</label>
-            <input id="porcentajeUSA" readonly>
-            <label>Porciento/pc Mundo:</label>
-            <input id="porcentajeMundial" readonly>
-
-
+          </select>
         </div>
-    
-    </div>
 
-    <div class="column"> <!-- Segunda división -->
+        <h4>Expenses for month</h4>
+        <div class="form-group">
+          <span class="help-block text-muted manual">Electricity</span>
+          <div class="col-md-8">
+            <input
+              type="number"  
+              step="1"
+              id="elect"
+              name="elect"
+              placeholder="Elecricity, kWh"
+              class="form-control"
+              style="border: 2px solid green"
+              required
+            />
+            <span class="error-msg">Ingresa solo números enteros.</span>
+            <input
+              type="text"
+              id="reporte_e"
+              name="reporte_e"
+              size="10"
+              style="border: none; border-bottom: 2px solid blue"
+            />
+            <span class="span">lbCO2</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="help-block text-muted manual">Gas</span>
+          <div class="col-md-8">
+            <input
+              type="number"
+              step="1"
+              id="gas"
+              name="gas"
+              placeholder="Gas, gal"
+              class="form-control"
+              style="border: 2px solid green"
+              required
+            />
+             <span class="error-msg">Ingresa solo números enteros.</span>
+            <input
+               type="text"
+               id="reporte_gas"
+              name="reporte_gas"
+              size="10"
+              style="border: none; border-bottom: 2px solid blue"
+            />
+            <span class="span">lbCO2</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="help-block text-muted manual">Water</span>
+          <div class="col-md-8">
+            <input
+              type="number"
+              step="1"
+              id="water"
+              name="water"
+              placeholder="Water, cubic feet"
+              class="form-control"
+              style="border: 2px solid green"
+              required
+            />
+             <span class="error-msg">Ingresa solo números enteros.</span>
+            <input
+               type="text"
+               id="reporte_water"
+              name="reporte_water"
+              size="10"
+              style="border: none; border-bottom: 2px solid blue"
+            />
+            <span class="span">lbCO2</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="help-block text-muted manual">Liquid Gas</span>
+          <div class="col-md-8">
+            <input
+              type="number"
+              step="1"
+              id="lpg"
+              name="lpg"
+              placeholder="Liquid gas, lb"
+              class="form-control"
+              style="border: 2px solid green"
+              required
+            />
+             <span class="error-msg">Ingresa solo números enteros.</span>
+            <input
+               type="text"
+               id="reporte_lpg"
+              name="reporte_lpg"
+              size="10"
+              style="border: none; border-bottom: 2px solid blue"
+            />
+            <span class="span">lbCO2</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="help-block text-muted manual">Natural Gas</span>
+          <div class="col-md-8">
+            <input
+              type="number"
+              step="1"
+              id="gn"
+              name="gn"
+              placeholder="Natural Gas, cubic feet"
+              class="form-control"
+              style="border: 2px solid green"
+              required
+            />
+             <span class="error-msg">Ingresa solo números enteros.</span>
+            <input
+              type="text"
+               id="reporte_gn"
+              name="reporte_gn"
+              size="10"
+              style="border: none; border-bottom: 2px solid blue"
+            />
+            <span class="span">lbCO2</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="help-block text-muted manual"> Flights</span>
+          <div class="col-md-8">
+            <input
+              type="number"
+              step="1"
+              id="fly"
+              name="fly"
+              placeholder="Trips in airplane, miles"
+              class="form-control"
+              style="border: 2px solid green"
+              required
+            />
+             <span class="error-msg">Ingresa solo números enteros.</span>
+            <input
+               type="text"
+               id="reporte_fly"
+              name="reporte_fly"
+              size="10"
+              style="border: none; border-bottom: 2px solid blue"
+            />
+            <span class="span">lb/CO2</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="help-block text-muted manual"
+            >Expenses in Good and Services</span
+          >
+          <div class="col-md-8">
+            <input
+              type="number"
+              step="1"
+              id="cogs"
+              name="cogs"
+              placeholder="Exp Goods and Servs, $ "
+              class="form-control"
+              style="border: 2px solid green"
+              required
+            />
+             <span class="error-msg">Ingresa solo números enteros.</span>
+            <input
+               type="text"
+               id="reporte_consumo"
+              name="reporte_consumo"
+              size="10"
+              style="border: none; border-bottom: 2px solid blue"
+            />
+            <span class="span">lbCO2</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="span">People included in the expenses</span>
+          <div class="col-md-8">
+            <input
+              type="number"
+              step="1"
+              id="person"
+              name="person"
+              placeholder="No. of people "
+              class="form-control"
+              style="border: 2px solid green"
+              required
+            />
+             <span class="error-msg">Ingresa solo números enteros.</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+        <!--<input type="button" name="poten" value="Send" onClick="multiply()" />-->
+          <button type="submit" id="calculo">Calcular</button>
+        </div>
+        <h4>Reports, in lbCO2 emitted/month</h4>
+
+        <div class="col-md-12 text-center">
+          <!--  CAMPOS DEL REPORTE - lbCO2 total - lbCO2 per capita -State -  lbCO2/per capita of State -->
+          <input
+            type="text"
+            readonly 
+            id="resultado"
+            name="resultado"         
+            style="border: none; border-bottom: 2px solid blue"
+          />
+          <span class="span">[1]Resultado, lbCO2</span>
+          <br />
+
+          <input
+             type="text"
+            readonly 
+            id="percapita"
+            name="percapita"
+            style="border: none; border-bottom: 2px solid blue"
+          />
+          <span class="span">[2]Percapita, lbCO2/per_cap</span>
+          <br />
+          <input
+             type="text"
+            readonly             
+            id="estado"
+            name="estado"
+            style=" border: none; border-bottom: 2px solid blue;"
+            />
+          <span class="span"><b>[3]Estado, State</b></span>
+          <br />
+          <input
+           type="text"
+            readonly
+            id="per_capita_estado"
+            name="per_capita_estado" 
+            style="
+              border: none;
+              border-bottom: 2px solid blue;
+              background-color: #aaf8bc;
+            "
+          />
+          <span class="span">[4]Percapita del estado, lbCO2/per_cap</span>
+          <br />
+          <input
+           type="text"
+            readonly
+            id="porcentEstado"
+            name="porcentEstado" 
+            style="
+              border: none;
+              border-bottom: 2px solid blue;
+              background-color: #aaf8bc;
+            "
+          />
+          <span class="span">[5]Porciento respecto al percapita del estado <br>= ([2]/[4]) *100</span>
+          <br />
+          <input
+           type="text"
+            id="promedioUSA"
+            name="promedioUSA"  
+            style="
+              border: none;
+              border-bottom: 2px solid blue;
+              background-color: #055d20;
+              color: white;
+            "
+          />
+           <span class="span">[6]PromedioUSA (2019) , lbCO2/per_cap </span>
+           
+            <input
+           type="text"
+            id="promedioMundial"
+            name="promedioMundial"  
+            style="
+              border: none;
+              border-bottom: 2px solid blue;
+              background-color: #055d20;
+              color: white;
+            "
+          />
+          <span class="span">[7]PromedioMundial (2019), lbCO2/per_cap </span>
+          <br>
+          <span class="span"><b>Porcientos Globales, %</b></span>
+          <br />
+         
+          <br />
+          <input
+             type="text"
+            readonly 
+            id="porcentUSA"
+            name="porcentUSA" 
+            style="
+              border: none;
+              border-bottom: 2px solid blue;
+              background-color: #d9ddda;
+            "
+          />
+          <span class="span">[8]Porciento respecto al promedio USA= ([2]/[5]) *100</span>
+          <br />
+         <span class="span"><b>USA per_cap(2019)</b></span>
+          <br />
+            <input
+             type="text"
+            readonly 
+            id="porcentM"
+            name="porcentM" 
+            style="
+              border: none;
+              border-bottom: 2px solid blue;
+              background-color: #d9ddda;
+            "
+          />
+          <span class="span">[9]Porciento respecto al promedio Mundial= ([2]/[6]) *100</span>
+         <br />
+         <span class="manual"><b>per_cap(2019) Mundial</b></span>
+        </div>
+      </fieldset>
+    </form>
+    
+    </div> <!--Termina el contenedor de la columna 1 -->
+
+    <div class="column"> <!-- Segunda columna -->
      <h3 class="subcapitulo1"> Contribuyendo a un Futuro Sostenible </h3>    
     <p><b>Descripción</b></p>
     <p>La API Huella de Carbono es una herramienta avanzada que permite calcular 
@@ -175,20 +502,44 @@
             algoritmos más avanzados y optimización del cálculo de emisiones, 
             podemos potenciar aún más el impacto de esta herramienta. </p>
 
-
+    <!--Grafico pie dentro de la columna 2 y al centro-->
+      <div id="chartContainer"></div> 
     
-    </div>
-    
-</div>
+      </div><!--Termina el contenedor de la columna 2 -->
+  
 
+    <footer id="footer"></footer><!--Dentro del contenedor wrapper -->
+  
+</div><!--Termina el  wrapper que abraza las  columnas -->
 
-</div>
-<footer>
-    <p>© 2025  APIs. (Cálculos Técnicos)</p>
-</footer>
+  
+    <!--Estos archivos se se coloca al final antes del cierre </body>-->
 
+    <!--a) En el script de la funcction load_all() que tiene la tarea de inhyectar los componentes html en el DOM-->
+    <script src="./js/load_all.js"></script>
+      
+  
+    </script>
+  <!-- b) Cargar el script que ejecuta la logica del sistema - frontend..Envia datos al servidor en el backend y los capta de regreso -->
+      <script type="module" src="./nav-footprint.mjs"></script>
+  <!-- c) Cargar el script que da estilos al menu hamburguer, (menu.html) una vez que se la function load_all() lo ha cargado-->
+     <script src="./js/menu_hamburger.js"></script>
+  <!-- d) Cargar el script que define 'pie()' posterior a crear en nav-footprint.mjs las variables localStorage -->
+     <script type="module" src="./js/function-pie.js"></script>
+  
+  <!--Este script ejecuta la function pie() al cargar la pagina </body>-->   
+<script>
+  window.onload = function () {
+    pie(); // Ejecuta la función al cargar la página
+  };
+</script>
+<!--Este script borra los datos almacenados en localStorage con el metodo localStorage.clear()  cuando se refreca o cierra la pagina HYML </body>-->  
+<script>
+      window.onload = function () {
+        localStorage.clear();
+      };
+</script>
 
-<script type="module" src="./nav-footprint.mjs"></script>
-
+  
 </body>
 </html>

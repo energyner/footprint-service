@@ -1,0 +1,297 @@
+/* Estilos generales */
+body {
+  font-family: "PT Sans", sans-serif;
+  background-color: #fbfbfb;
+}
+
+/* Estilos del menú hamburguesa */
+#menu {
+  width: 35px;
+  height: 30px;
+  margin: 20px 0 10px 10px;
+  cursor: pointer;
+  background-color: rgba(191, 191, 249, 0.1);
+  border-radius: 5px;
+}
+
+.bar {
+  height: 5px;
+  width: 100%;
+  background-color: rgb(241, 15, 15);
+  display: block;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+#bar1 {
+  transform: translateY(-4px);
+}
+
+#bar3 {
+  transform: translateY(4px);
+}
+
+/* Estilos del menú de navegación */
+nav {
+  background-color: rgb(245, 106, 106);
+  padding: 5px 0;
+  justify-content: left;
+  height: auto;
+  overflow-y: auto;
+  max-height: calc(100vh - 80px);
+}
+
+.nav {
+  display: none;
+}
+
+.nav.open {    
+    height: auto; /* ASEGURAR ESTO AL ABRIRSE */
+    }
+
+#nav.open {
+  display: block;
+}
+
+
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 3px;
+}
+
+.nav a:hover {
+  background-color: yellow;
+}
+
+.nav li a {
+  color: #fefcfc;
+  text-decoration: none;
+  font-size: 10px;
+   padding: 2px 5px !important;
+  line-height: 1.0 !important; /* menor altura entre líneas */
+  font-weight: 600;
+  transition: background-color 0.3s;
+
+}
+
+.nav li a:hover,
+.nav li a:active {
+  font-weight: bold;
+  background-color: #ffd700;
+}
+
+/* Compactar los ítems principales del menú */
+.nav > li {
+  margin: 0 !important;
+  padding: 0px 2px !important;
+  line-height: 1.0 !important;
+   display: block; /* Asegura que el li sea un bloque y respete el padding */
+}
+
+.nav {
+  padding: 0;
+  margin: 2 5px;
+  transition: 0.3s ease;
+  display: none;
+ /* Añadimos un padding superior e inferior general al ul.nav para que los elementos
+  no se peguen al borde del contenedor desplegable */
+  padding-top: 5px; /* Pequeño espacio arriba */
+  padding-bottom: 5px; /* Pequeño espacio abajo */
+}
+
+.link {
+  display: grid;
+  grid-template-columns: repeat(2, min-content); /* Ajustar al contenido */
+  gap: 1px !important;         /* Muy poco espacio entre ítems */
+  padding: 0px !important;
+  justify-content: start;
+  align-items: start;
+  width: auto !important;
+  max-width: 95%;
+}
+
+.link li {
+  margin: 0px !important;
+  padding: 0px !important;
+  width: auto !important;
+  min-width: max-content;
+  white-space: nowrap;
+}
+
+.nav, .link, .menu-bg, #menu-bar {
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+#menu-bar {
+  top: 0;
+  left: 0;
+  position: absolute;
+  justify-content: left;
+  z-index: 2;
+  width: max-content !important;
+  max-width: 240px !important; /* evita desbordes */
+  min-width: 200px !important;;
+  
+}
+
+.menu-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: fit-content;
+  width: max-content !important;
+  max-width: 240px !important; /* evita desbordes */
+  min-width: 200px !important;
+  max-height: 70vh; /* Previene que desborde la pantalla */
+  height: auto;
+  z-index: 1;
+  background: #1a237e;
+  border-radius: 0%;
+  transition: 0.3s ease;
+  display: none;
+  padding: 5px;
+  color: rgb(255, 255, 255);
+  justify-content: left;
+  height: auto;
+  overflow-y: auto; /* Permite hacer scroll si hay muc*/
+  box-sizing: border-box;
+  overflow-x: hidden;
+ 
+}
+
+.menu-bg.open {
+  background: rgba(26, 35, 126, 0.7);
+  display: block;
+  color: rgb(16, 3, 35);
+  height: auto;
+  max-height: 50vh;
+  width: max-content !important;
+  max-width: 240px !important; /* evita desbordes */
+  min-width: 200px !important;
+}
+
+.change .bar {
+  background-color: rgb(241, 15, 15);
+}
+
+.change #bar1 {
+  transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar3 {
+  transform: translateY(-6px) rotate(45deg);
+}
+
+.change #bar2 {
+  opacity: 0;
+}
+
+.change {
+  display: block;
+}
+
+/* Media queries para pantallas pequeñas */
+@media screen and (max-width: 576px) {
+  .menu-bg {
+    background: rgba(0, 0, 0, 0.6);
+    width: 85vw;
+    max-width: 85vw;
+    height: 100vh;
+  }
+  #menu-bar {
+    position: absolute;
+    width: 85vw;
+    max-width: 300px;
+  }
+  .menu-bg.open {
+    width: 85vw;
+    height: 80vh;
+  }
+ 
+  .link {
+    grid-template-columns: repeat(2, min-content);
+    gap: 1px !important;
+  }
+
+ .nav li a,
+ .link li {
+    font-size: 9px !important;
+    padding: 1px 4px !important;
+  }
+
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .menu-bg {
+    background: rgba(0, 0, 0, 0.6);
+    width: 80vw;
+    max-width: 300px;
+    height: 50vh;
+  }
+  #menu-bar {
+    width: 80vw;
+    max-width: 300px;
+  }
+  .menu-bg.open {
+    width: 80vw;
+    height: 80vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .menu-bg {
+    background: rgba(0, 0, 0, 0.6);
+    width: 40vw;
+    max-width: 350px;
+    height: 60vh;
+  }
+  #menu-bar {
+    height: 60vh;
+  }
+  .menu-bg.open {
+    width: 40vw;
+    height: 80vh;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  #menu-bar {
+    width: 25vw;
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .menu-bg {
+    height: 80vh;
+  }
+  .menu-bg.open {
+    width: 40vw;
+    height: 80vh;
+  }
+}

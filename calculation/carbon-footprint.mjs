@@ -37,27 +37,30 @@ export function calcularHuellaCarbono({ state, elect = 0, gas = 0, water = 0, lp
     // Cálculo total
     const resultado = Math.round(e + t + c + l + o + f + u);
     const estado=state;
-    const per_capita = Math.round(resultado / person);
+    const per_capita = Math.round(resultado/person);
 
     // Emisiones del estado seleccionado
     const per_capita_estado = emisionesPerCapitaPorEstado[state] || 0;
 
     // Cálculos comparativos
-    const porcentajeEstado = Math.round((per_capita / per_capita_estado) * 100);
-    const porcentajeUSA = Math.round((per_capita / promedioUSA) * 100);
-    const porcentajeMundial = Math.round((per_capita / promedioMundial) * 100);
+    const porcentEstado = Math.round((per_capita/per_capita_estado) * 100);
+    const porcentUSA = Math.round((per_capita/promedioUSA) * 100);
+    const porcentM = Math.round((per_capita/promedioMundial ) * 100);
+
 
     // Retornar los resultados
     return {
-        estado: estado,
+        data: {state, elect, gas , water , lpg , gn , fly , cogs, person} ,
+       estado,
         total: resultado,
         per_capita,
         per_capita_estado,
         promedioUSA,
         promedioMundial,
-        porcentajeEstado,
-        porcentajeUSA,
-        porcentajeMundial,
+        porcentEstado,
+        porcentUSA,
+        porcentM,
         libras_co2: { elect: e, gas: t, water: c, lpg: l, gn: o, fly: f, cogs: u }
     };
 }
+
